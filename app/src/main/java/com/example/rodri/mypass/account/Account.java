@@ -5,15 +5,24 @@ package com.example.rodri.mypass.account;
  */
 public class Account {
 
-    private String serviceName;
+    private long id;
+    private String accountName;
     private String password;
 
-    public String getServiceName() {
-        return serviceName;
+    public long getId() {
+        return id;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public String getPassword() {
@@ -26,7 +35,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return serviceName + " account.";
+        return accountName + " account.";
     }
 
 }

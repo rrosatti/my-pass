@@ -2,4 +2,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_service"
+        android:id="@+id/btAddService"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/services"
+        android:textSize="14pt"
+        android:id="@+id/txtServices"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btAddService"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listOfServices"
+        android:layout_below="@+id/btAddService"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp"
+        android:scrollbars="none"/>
+
+
 </RelativeLayout>
