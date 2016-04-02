@@ -2,11 +2,11 @@
     <string name="app_name">MyPass</string>
 
     <!-- Buttons -->
-    <string name="add_service">Add Service</string>
+    <string name="add_account">Add Account</string>
     <string name="get_pass">Get Pass</string>
 
     <!-- TextViews -->
-    <string name="services">Services</string>
+    <string name="accounts">Accounts</string>
 
 
 </resources>
