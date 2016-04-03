@@ -6,7 +6,7 @@ package com.example.rodri.mypass.util;
  */
 public class EncryptDecrypt {
 
-    private static String _key = "ABC123";
+    private static String _key = "123";
 
     public String getKey() {
         return _key;

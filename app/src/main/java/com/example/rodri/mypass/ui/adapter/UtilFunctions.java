@@ -3,12 +3,15 @@ package com.example.rodri.mypass.ui.adapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rodri.mypass.R;
+import com.example.rodri.mypass.ui.activity.AccountsActivity;
+import com.example.rodri.mypass.ui.activity.NewAccountActivity;
 import com.example.rodri.mypass.util.EncryptDecrypt;
 
 /**
@@ -18,50 +21,59 @@ public class UtilFunctions {
 
     int result = -1;
 
-    public int checkKey(Activity newActivity) {
-        final Activity activity = newActivity;
+    public int checkKey(final Activity _activity, int _action) {
+        final Activity activity = _activity;
+        final int action = _action;
 
-        activity.runOnUiThread(new Runnable() {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
+        LayoutInflater inflater = activity.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText etPass = (EditText) dialogView.findViewById(R.id.etPass);
+
+        dialogBuilder.setTitle("KEY");
+        dialogBuilder.setMessage("Insert the key: ");
+        dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(DialogInterface dialog, int which) {
 
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
-                LayoutInflater inflater = activity.getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-                dialogBuilder.setView(dialogView);
+                EncryptDecrypt decrypt = new EncryptDecrypt();
+                String pass = decrypt.getKey();
 
-                final EditText etPass = (EditText) dialogView.findViewById(R.id.etPass);
+                if (!etPass.getText().toString().equals(pass)) {
+                    result = 0;
+                    Toast.makeText(activity, "The key is wrong", Toast.LENGTH_LONG).show();
+                } else {
+                    result = 1;
+                    //Toast.makeText(activity, "Come in!", Toast.LENGTH_LONG).show();
 
-                dialogBuilder.setTitle("KEY");
-                dialogBuilder.setMessage("Insert the key: ");
-                dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    switch (action) {
+                        case (0): {
+                            Intent nextScreen = new Intent(_activity, NewAccountActivity.class);
+                            _activity.startActivity(nextScreen);
+                        }
+                        break;
+                        case (1): {
 
-                        EncryptDecrypt decrypt = new EncryptDecrypt();
-                        String pass = decrypt.getKey();
-
-                        if (!etPass.getText().toString().equals(pass)) {
-                            result = -1;
-                            Toast.makeText(activity, "The key is wrong", Toast.LENGTH_LONG).show();
-                        } else {
-                            result = 0;
-                            //Toast.makeText(activity, "Come in!", Toast.LENGTH_LONG).show();
                         }
 
                     }
-                });
-                dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                AlertDialog alert = dialogBuilder.create();
-                alert.show();
+                }
 
             }
         });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alert = dialogBuilder.create();
+        alert.show();
+
 
         return result;
 

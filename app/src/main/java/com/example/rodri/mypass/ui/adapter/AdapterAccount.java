@@ -76,7 +76,7 @@ public class AdapterAccount extends ArrayAdapter<Account> {
 
                     UtilFunctions util = new UtilFunctions();
 
-                    util.checkKey(activity);
+                    util.checkKey(activity, 1);
 
                 }
             });

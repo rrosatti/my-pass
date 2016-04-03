@@ -32,30 +32,32 @@ public class AccountsActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-
-                Thread t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        result = util.checkKey(AccountsActivity.this);
-                    }
+                /**
+                 * Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                result = util.checkKey(AccountsActivity.this);
+                }
                 });
 
-                t.start();
+                 t.start();
 
-                try {
-                    t.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                 try {
+                 t.join();
+                 } catch (InterruptedException e) {
+                 e.printStackTrace();
+                 }
+                 */
 
-                if (result == 0) {
-                    Intent newAccountIntent = new Intent(AccountsActivity.this, NewAccountActivity.class);
-                    startActivity(newAccountIntent);
-                }
+                // 0 - action referent to this Activity (start NewAccountActivity)
+                result = util.checkKey(AccountsActivity.this, 0);
+
+
 
             }
         });
 
     }
+
 
 }

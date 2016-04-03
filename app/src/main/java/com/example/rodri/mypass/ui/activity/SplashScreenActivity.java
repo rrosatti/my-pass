@@ -13,7 +13,7 @@ import com.example.rodri.mypass.R;
 public class SplashScreenActivity extends Activity {
 
     protected boolean _active = true;
-    protected int _splashTime = 5000;
+    protected int _splashTime = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

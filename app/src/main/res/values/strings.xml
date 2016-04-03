@@ -4,9 +4,14 @@
     <!-- Buttons -->
     <string name="add_account">Add Account</string>
     <string name="get_pass">Get Pass</string>
+    <string name="confirm">Confirm</string>
 
     <!-- TextViews -->
     <string name="accounts">Accounts</string>
+    <string name="new_account">New Account</string>
 
+    <!-- Hints -->
+    <string name="new_account_name">new account name</string>
+    <string name="password">password</string>
 
 </resources>
