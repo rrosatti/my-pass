@@ -55,7 +55,6 @@ public class AdapterAccount extends ArrayAdapter<Account> {
     public View getView(int position, View convertView, final ViewGroup parent) {
         View v = convertView;
         final ViewHolder holder;
-        final Account account = lAccount.get(position);
         try {
             if (convertView == null) {
                 v = inflater.inflate(R.layout.accounts_list_item, null);
@@ -75,40 +74,9 @@ public class AdapterAccount extends ArrayAdapter<Account> {
                 @Override
                 public void onClick(View v) {
 
-                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
-                    LayoutInflater inflater = activity.getLayoutInflater();
-                    final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-                    dialogBuilder.setView(dialogView);
+                    UtilFunctions util = new UtilFunctions();
 
-                    final EditText etPass = (EditText) dialogView.findViewById(R.id.etPass);
-
-                    dialogBuilder.setTitle("KEY");
-                    dialogBuilder.setMessage("Insert the key: ");
-                    dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            EncryptDecrypt decrypt = new EncryptDecrypt();
-                            String pass = decrypt.getKey();
-
-                            if (!etPass.getText().toString().equals(pass)) {
-                                Toast.makeText(activity, "The key is wrong", Toast.LENGTH_LONG).show();
-                            } else {
-                                // Need to implement some code here
-                                Toast.makeText(activity, "Come in!", Toast.LENGTH_LONG).show();
-                            }
-
-                        }
-                    });
-                    dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-                    AlertDialog alert = dialogBuilder.create();
-                    alert.show();
-
+                    util.checkKey(activity);
 
                 }
             });

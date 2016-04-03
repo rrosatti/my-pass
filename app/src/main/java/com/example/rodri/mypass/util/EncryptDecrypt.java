@@ -12,4 +12,12 @@ public class EncryptDecrypt {
         return _key;
     }
 
+    public String encrypt(String password) {
+        return "";
+    }
+
+    public String decrypt(String password) {
+        return "";
+    }
+
 }
