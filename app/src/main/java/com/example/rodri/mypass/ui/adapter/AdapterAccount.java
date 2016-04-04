@@ -1,23 +1,19 @@
 package com.example.rodri.mypass.ui.adapter;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rodri.mypass.R;
 import com.example.rodri.mypass.account.Account;
 import com.example.rodri.mypass.database.AccountsDataSource;
-import com.example.rodri.mypass.util.EncryptDecrypt;
+import com.example.rodri.mypass.util.UtilFunctions;
 
 import java.util.List;
 

@@ -38,7 +38,6 @@ public class AccountsDataSource {
     }
 
     public Account createAccount(String accountName, String password) {
-        String hashedPass = "";
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_ACCOUNT_NAME, accountName);
         values.put(MySQLiteHelper.COLUMN_PASSWORD, password);
@@ -70,9 +69,11 @@ public class AccountsDataSource {
 
     public List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<>();
+        System.out.println("I've been here!");
         Cursor cursor = database.query(MySQLiteHelper.TABLE_ACCOUNTS, allColumns, null, null, null, null, null);
         cursor.moveToFirst();
 
+        System.out.println("I'm the cursor -> " + cursor);
         while(!cursor.isAfterLast()) {
             Account account = cursorToAccount(cursor);
             accounts.add(account);
