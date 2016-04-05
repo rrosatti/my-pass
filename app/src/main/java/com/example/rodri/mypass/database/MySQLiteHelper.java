@@ -13,6 +13,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String TABLE_ACCOUNTS = "accounts";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_ACCOUNT_NAME = "account_name";
+    public static final String COLUMN_LOGIN = "login";
     public static final String COLUMN_PASSWORD = "password";
 
     public static final String DATABASE_NAME = "accounts.db";
@@ -21,6 +22,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = "create table " + TABLE_ACCOUNTS + "("
                                                     + COLUMN_ID + " integer primary key autoincrement, "
                                                     + COLUMN_ACCOUNT_NAME + " text not null, "
+                                                    + COLUMN_LOGIN + " text not null, "
                                                     + COLUMN_PASSWORD + " text not null);";
 
     public MySQLiteHelper(Context context) {

@@ -22,8 +22,9 @@ public class AccountsDataSource {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-                                  MySQLiteHelper.COLUMN_ACCOUNT_NAME,
-                                  MySQLiteHelper.COLUMN_PASSWORD };
+                                    MySQLiteHelper.COLUMN_ACCOUNT_NAME,
+                                    MySQLiteHelper.COLUMN_LOGIN,
+                                    MySQLiteHelper.COLUMN_PASSWORD };
 
     public AccountsDataSource(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -37,9 +38,10 @@ public class AccountsDataSource {
         dbHelper.close();
     }
 
-    public Account createAccount(String accountName, String password) {
+    public Account createAccount(String accountName, String login, String password) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_ACCOUNT_NAME, accountName);
+        values.put(MySQLiteHelper.COLUMN_LOGIN, login);
         values.put(MySQLiteHelper.COLUMN_PASSWORD, password);
 
         long insertId = database.insert(MySQLiteHelper.TABLE_ACCOUNTS, null, values);
@@ -57,7 +59,8 @@ public class AccountsDataSource {
         Account account = new Account();
         account.setId(cursor.getLong(0));
         account.setAccountName(cursor.getString(1));
-        account.setPassword(cursor.getString(2));
+        account.setLogin(cursor.getString(2));
+        account.setPassword(cursor.getString(3));
         return account;
     }
 

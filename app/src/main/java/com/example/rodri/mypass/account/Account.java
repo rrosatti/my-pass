@@ -7,6 +7,7 @@ public class Account {
 
     private long id;
     private String accountName;
+    private String login;
     private String password;
 
     public long getId() {
@@ -24,6 +25,15 @@ public class Account {
     public void setAccountName(String accountName) {
         this.accountName = accountName;
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
 
     public String getPassword() {
         return password;

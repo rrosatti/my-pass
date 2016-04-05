@@ -45,6 +45,7 @@ public class AdapterAccount extends ArrayAdapter<Account> {
 
     public static class ViewHolder {
         public TextView displayAccountName;
+        public TextView displayLogin;
         public Button btGetPass;
     }
 
@@ -57,6 +58,7 @@ public class AdapterAccount extends ArrayAdapter<Account> {
                 holder = new ViewHolder();
 
                 holder.displayAccountName = (TextView) v.findViewById(R.id.showAccountName);
+                holder.displayLogin = (TextView) v.findViewById(R.id.showLogin);
                 holder.btGetPass = (Button) v.findViewById(R.id.btGetPass);
 
                 v.setTag(holder);
@@ -65,6 +67,7 @@ public class AdapterAccount extends ArrayAdapter<Account> {
             }
 
             holder.displayAccountName.setText(lAccount.get(position).getAccountName());
+            holder.displayLogin.setText(lAccount.get(position).getLogin());
 
             holder.btGetPass.setOnClickListener(new View.OnClickListener() {
                 @Override

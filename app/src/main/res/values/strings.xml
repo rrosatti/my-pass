@@ -13,5 +13,6 @@
     <!-- Hints -->
     <string name="new_account_name">new account name</string>
     <string name="password">password</string>
+    <string name="login">login</string>
 
 </resources>

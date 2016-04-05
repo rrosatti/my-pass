@@ -32,8 +32,8 @@ public class NewAccountActivity extends Activity {
             e.printStackTrace();
         }
 
-
         final EditText etAccountName = (EditText)findViewById(R.id.etAccountName);
+        final EditText etLogin = (EditText)findViewById(R.id.etLogin);
         final EditText etPassword = (EditText)findViewById(R.id.etPassword);
         Button btConfirm = (Button)findViewById(R.id.btConfirm);
 
@@ -41,10 +41,14 @@ public class NewAccountActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String accountName = etAccountName.getText().toString();
+                String login = etLogin.getText().toString();
                 String password = etPassword.getText().toString();
 
                 if (accountName.matches("")) {
                     Toast.makeText(NewAccountActivity.this, "You need to write the account name!", Toast.LENGTH_LONG).show();
+                }
+                else if (login.matches("")) {
+                    Toast.makeText(NewAccountActivity.this, "You did not write the login...", Toast.LENGTH_LONG).show();
                     return;
                 } else if (password.matches("")) {
                     Toast.makeText(NewAccountActivity.this, "You did not enter the password...", Toast.LENGTH_LONG).show();
@@ -54,7 +58,7 @@ public class NewAccountActivity extends Activity {
                 EncryptDecrypt enc = new EncryptDecrypt();
                 String encPass = enc.encrypt(password);
 
-                dataSource.createAccount(accountName, encPass);
+                dataSource.createAccount(accountName, login, encPass);
 
                 dataSource.close();
 
