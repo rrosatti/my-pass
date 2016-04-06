@@ -49,7 +49,7 @@ public class AdapterAccount extends ArrayAdapter<Account> {
         public Button btGetPass;
     }
 
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         View v = convertView;
         final ViewHolder holder;
         try {
@@ -74,8 +74,8 @@ public class AdapterAccount extends ArrayAdapter<Account> {
                 public void onClick(View v) {
 
                     UtilFunctions util = new UtilFunctions();
-
-                    util.checkKey(activity, 1);
+                    long id = lAccount.get(position).getId();
+                    util.checkKey(activity, id);
 
                 }
             });

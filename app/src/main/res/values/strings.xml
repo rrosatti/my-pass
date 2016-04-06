@@ -9,6 +9,7 @@
     <!-- TextViews -->
     <string name="accounts">Accounts</string>
     <string name="new_account">New Account</string>
+    <string name="key">KEY</string>
 
     <!-- Hints -->
     <string name="new_account_name">new account name</string>

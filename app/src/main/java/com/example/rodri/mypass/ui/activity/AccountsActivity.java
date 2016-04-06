@@ -1,6 +1,7 @@
 package com.example.rodri.mypass.ui.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,8 +45,6 @@ public class AccountsActivity extends Activity {
 
         List<Account> accounts = dataSource.getAllAccounts();
 
-
-
         if (accounts != null) {
             adapterAccount = new AdapterAccount(AccountsActivity.this, 0, accounts);
             allAccounts.setAdapter(adapterAccount);
@@ -57,27 +56,9 @@ public class AccountsActivity extends Activity {
         newAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /**
-                 * Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                result = util.checkKey(AccountsActivity.this);
-                }
-                });
-
-                 t.start();
-
-                 try {
-                 t.join();
-                 } catch (InterruptedException e) {
-                 e.printStackTrace();
-                 }
-                 */
-
-                // 0 - action referent to this Activity (start NewAccountActivity)
-                result = util.checkKey(AccountsActivity.this, 0);
-
+                Intent newAccount = new Intent(AccountsActivity.this, NewAccountActivity.class);
+                startActivity(newAccount);
+                finish();
             }
         });
 

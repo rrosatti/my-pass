@@ -72,11 +72,9 @@ public class AccountsDataSource {
 
     public List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<>();
-        System.out.println("I've been here!");
         Cursor cursor = database.query(MySQLiteHelper.TABLE_ACCOUNTS, allColumns, null, null, null, null, null);
         cursor.moveToFirst();
 
-        System.out.println("I'm the cursor -> " + cursor);
         while(!cursor.isAfterLast()) {
             Account account = cursorToAccount(cursor);
             accounts.add(account);
@@ -85,6 +83,18 @@ public class AccountsDataSource {
 
         cursor.close();
         return accounts;
+    }
+
+    public Account getAccount(long id) {
+        Account account;
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_ACCOUNTS, allColumns,
+                                       MySQLiteHelper.COLUMN_ID + " = " + id, null, null, null, null);
+        cursor.moveToFirst();
+
+        account = cursorToAccount(cursor);
+        cursor.close();
+
+        return account;
     }
 
 
