@@ -43,7 +43,7 @@ public class EncryptDecrypt {
         }
         // END OF STEP 1
 
-
+        //print(encPass);
 
         // STEP 2
 
@@ -52,19 +52,29 @@ public class EncryptDecrypt {
          *
          */
         String[] firstThreeCharacters = new String[3];
-        for (int i = 0; i < encPass.length - 3; i++) {
+        String[] lastCharacters = new String[n-3];
+        int j = 0;
+        for (int i = 0; i < n; i++) {
             if (i < 3) {
                 firstThreeCharacters[i] = encPass[i];
             }
-            encPass[i] = encPass[i + 3];
+            else {
+                lastCharacters[j] = encPass[i];
+                j++;
+            }
         }
-        count = 0;
-        for (int i = n - 3; i < encPass.length ; i++) {
-            encPass[i] = firstThreeCharacters[count++];
+        j = 0;
+        for (int i = 0; i < n; i++) {
+            if (i >= n - 3) {
+                encPass[i] = firstThreeCharacters[j];
+                j++;
+            }
+            else
+                encPass[i] = lastCharacters[i];
         }
         // END OF STEP 2
 
-
+        //print(encPass);
 
         // STEP 3
         String secondToLastCharacter = encPass[n - 2];
@@ -75,7 +85,7 @@ public class EncryptDecrypt {
         encPass[0] = secondToLastCharacter;
         // END OF THE STEP 3
 
-
+        //print(encPass);
 
         // STEP 4
         // random.nextInt(max - min + 1) + min
@@ -127,6 +137,7 @@ public class EncryptDecrypt {
         }
         // END OF STEP 1
 
+        //print(decPass);
 
         // STEP 2
         String firstCharacter = decPass[0];
@@ -136,24 +147,32 @@ public class EncryptDecrypt {
         decPass[decPass.length - 2] = firstCharacter;
         // END OF STEP 2
 
-
+        //print(decPass);
 
         // STEP 3
         String[] lastThreeCharacters = new String[3];
-        count = 0;
-        for (int i = decPass.length - 1; i > 2; i--) {
-            if (i > decPass.length - 4) {
-                lastThreeCharacters[count++] = decPass[i];
+        String[] firstCharacters = new String[decPass.length - 3];
+        int j = 0;
+        for (int i = 0; i < decPass.length ; i++) {
+            if (i >= decPass.length - 3) {
+                lastThreeCharacters[j] = decPass[i];
+                j++;
+            } else {
+                firstCharacters[i] = decPass[i];
             }
-            decPass[i] = decPass[i - 3];
         }
-        count = 2;
-        for (int i = 0; i < 3; i++) {
-            decPass[i] = lastThreeCharacters[count--];
+        j = 0;
+        for (int i = 0; i < decPass.length; i++) {
+            if (i < 3)
+                decPass[i] = lastThreeCharacters[i];
+            else {
+                decPass[i] = firstCharacters[j];
+                j++;
+            }
         }
         // END OF STEP 3
 
-
+        //print(decPass);
 
         // STEP 4
         String[] forward = new String[n - 2];
@@ -173,7 +192,6 @@ public class EncryptDecrypt {
         String result = strBuilder.toString();
 
         return result;
-
 
     }
 
