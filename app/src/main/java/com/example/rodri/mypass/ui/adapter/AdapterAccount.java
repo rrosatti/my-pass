@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.rodri.mypass.R;
 import com.example.rodri.mypass.account.Account;
 import com.example.rodri.mypass.database.AccountsDataSource;
+import com.example.rodri.mypass.ui.activity.AccountsActivity;
 import com.example.rodri.mypass.util.UtilFunctions;
 
 import java.sql.SQLException;
@@ -102,6 +104,10 @@ public class AdapterAccount extends ArrayAdapter<Account> {
                             Account account = lAccount.get(position);
                             dataSource.deleteAccount(account);
                             dataSource.close();
+
+                            Intent reload = new Intent(activity, activity.getClass());
+                            activity.finish();
+                            activity.startActivity(reload);
                         }
                     });
                     builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

@@ -26,6 +26,7 @@ public class AccountsActivity extends Activity {
 
     int result;
     UtilFunctions util;
+    List<Account> accounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class AccountsActivity extends Activity {
         Button newAccount = (Button) findViewById(R.id.btAddAccount);
         ListView allAccounts = (ListView)findViewById(R.id.listOfAccounts);
 
-        List<Account> accounts = dataSource.getAllAccounts();
+        accounts = dataSource.getAllAccounts();
 
         if (accounts != null) {
             adapterAccount = new AdapterAccount(AccountsActivity.this, 0, accounts);
@@ -61,6 +62,7 @@ public class AccountsActivity extends Activity {
                 finish();
             }
         });
+
 
     }
 
