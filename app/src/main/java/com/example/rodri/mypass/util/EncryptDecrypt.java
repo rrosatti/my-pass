@@ -31,14 +31,17 @@ public class EncryptDecrypt {
     public String encrypt(String password) {
 
         int n = password.length();
-        String[] pass = password.split("");
+        String[] pass = password.replaceFirst("^", "").split("");
         String[] encPass = new String[n];
+
+
 
 
         // STEP 1
         int count = 0;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = pass.length - 1; i > 0; i--) {
             encPass[count] = pass[i];
+            System.out.println(pass[i]);
             count++;
         }
         // END OF STEP 1
@@ -99,7 +102,7 @@ public class EncryptDecrypt {
         }
         // END OF STEP 4
 
-
+        //print(encPass);
 
         // convert from string array to string
         StringBuilder strBuilder = new StringBuilder();
@@ -132,12 +135,13 @@ public class EncryptDecrypt {
 
         // STEP 1
         int count = 0;
-        for (int i = 1; i < n - 1; i++) {
+        for (int i = 2; i < n; i++) {
+            System.out.println(tempArray[i]);
             decPass[count++] = tempArray[i];
         }
         // END OF STEP 1
 
-        //print(decPass);
+        print(decPass);
 
         // STEP 2
         String firstCharacter = decPass[0];
@@ -147,7 +151,7 @@ public class EncryptDecrypt {
         decPass[decPass.length - 2] = firstCharacter;
         // END OF STEP 2
 
-        //print(decPass);
+        print(decPass);
 
         // STEP 3
         String[] lastThreeCharacters = new String[3];
@@ -172,7 +176,7 @@ public class EncryptDecrypt {
         }
         // END OF STEP 3
 
-        //print(decPass);
+        print(decPass);
 
         // STEP 4
         String[] forward = new String[n - 2];
@@ -193,6 +197,13 @@ public class EncryptDecrypt {
 
         return result;
 
+    }
+
+    public void print(String[] v) {
+        for (int i = 0; i < v.length; i++) {
+            System.out.print(v[i]);
+        }
+        System.out.println();
     }
 
 }
