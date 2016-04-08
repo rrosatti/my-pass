@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent" android:stretchColumns="*"
-    android:shrinkColumns="*">
+    android:shrinkColumns="*"
+    android:background="#F0F8FF">
 
     <TextView
         android:id="@+id/txtSpace"
