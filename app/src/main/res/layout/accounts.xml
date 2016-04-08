@@ -9,6 +9,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/accounts"
         android:textSize="14pt"
+        android:textColor="#23395B"
         android:id="@+id/txtAccounts"
         android:layout_marginTop="42dp"
         android:layout_alignParentTop="true"
@@ -18,12 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_account"
+        android:background="@drawable/rounded_buttom"
+        style="@style/CustomButtonStyle"
         android:id="@+id/btAddAccount"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="117dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/txtAccounts"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/txtAccounts"/>
+        android:layout_marginRight="20dp"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -32,7 +34,9 @@
         android:layout_below="@+id/btAddAccount"
         android:layout_alignParentStart="true"
         android:layout_marginTop="55dp"
-        android:scrollbars="none"/>
+        android:scrollbars="none"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
 
 </RelativeLayout>

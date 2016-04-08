@@ -2,13 +2,14 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent" android:stretchColumns="*"
     android:shrinkColumns="*"
-    android:background="#F0F8FF">
+    android:background="#F0F8FF"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
 
     <TextView
         android:id="@+id/txtSpace"
         android:layout_width="wrap_content"
         android:layout_height="1px"
-        android:layout_marginLeft="20dp"
         android:layout_marginBottom="4px"
         android:textSize="8pt"
         android:background="#000000"/>
@@ -33,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="9">
             </TextView>
 
@@ -42,8 +43,9 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/btGetPass"
                 android:text="@string/get_pass"
+                android:background="@drawable/rounded_buttom"
+                style="@style/CustomButtonStyle"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1">
             </Button>
         </LinearLayout>
@@ -52,8 +54,7 @@
         android:id="@+id/txtSpace2"
         android:layout_width="wrap_content"
         android:layout_height="1px"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="4px"
+        android:layout_marginTop="5px"
         android:textSize="8pt"
         android:background="#000000"/>
 
