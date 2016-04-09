@@ -20,6 +20,7 @@
             android:id="@+id/showAccountName"
             android:layout_marginLeft="20dp"
             android:textSize="12pt"
+            android:textColor="#23395B"
             android:textStyle="bold|italic">
 
         </TextView>
@@ -35,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
                 android:layout_marginLeft="15dp"
+                android:textColor="#23395B"
                 android:layout_weight="9">
             </TextView>
 
