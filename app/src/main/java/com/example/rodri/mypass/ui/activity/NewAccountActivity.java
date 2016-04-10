@@ -44,13 +44,14 @@ public class NewAccountActivity extends Activity {
                 String login = etLogin.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (accountName.matches("")) {
+                if (accountName.equals("")) {
                     Toast.makeText(NewAccountActivity.this, "You need to write the account name!", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                else if (login.matches("")) {
+                else if (login.equals("")) {
                     Toast.makeText(NewAccountActivity.this, "You did not write the login...", Toast.LENGTH_LONG).show();
                     return;
-                } else if (password.matches("")) {
+                } else if (password.equals("")) {
                     Toast.makeText(NewAccountActivity.this, "You did not enter the password...", Toast.LENGTH_LONG).show();
                     return;
                 }
